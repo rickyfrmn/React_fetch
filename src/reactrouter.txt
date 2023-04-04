@@ -1,0 +1,64 @@
+
+import { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Header from "./components/Header";
+import ProductList from "./components/ProductList";
+import About from "./components/About";
+import Contact from "./components/Contact";
+
+
+function App() {
+  // const title = "welcome to my app";
+  // const age = 20;
+
+  // use state hook 
+  // const [title, setTitle] = useState("welcome to my app") ;
+  
+  // const [age, setAge] = useState(20);
+  const [products, setProducts] = useState([
+    { id: 1, title: 'Product 1', price: 999},
+    { id: 2, title: 'Product 2', price: 454},
+    { id: 3, title: 'Product 3', price: 655},
+    { id: 4, title: 'Product 4', price: 432},
+    { id: 5, title: 'Product 5', price: 879}
+  ]);
+
+  const deleteProduct = (productId) => {
+    const newProducts = products.filter(product => product.id !== productId);
+    setProducts(newProducts);
+  }
+  
+  const [name, setName] = useState('Ricky');
+
+
+
+  useEffect(() => {
+    console.log('Use effect running');
+  }, [name]);
+
+
+  
+
+  return (
+    
+    <div >
+      <BrowserRouter> 
+        
+        <Routes>
+          <Route exact path="/" element={<ProductList products={products} deleteProduct= {deleteProduct}/>}>
+            
+          </Route>
+          <Route path="/about" element={<About/>}>
+            
+          </Route>
+          <Route path="/contact" element={<Contact/>}>
+            
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </div>
+  
+  );
+}
+
+export default App;

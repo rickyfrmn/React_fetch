@@ -1,0 +1,14 @@
+npm install react-router-dom
+useState
+npm install bulma
+
+untuk memakai server json buatan sendiri
+npx json-server --watch db.json --port 8080
+http://localhost:8080/products
+
+cek di package.json
+
+npm run build
+untuk mulai production
+lalu akan muncul folder build, nah folder build yang akan dideploy ke hosting bukan 
+node_modules, public, src ke bawah

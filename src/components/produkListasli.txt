@@ -1,0 +1,20 @@
+import { useEffect, useState } from "react";
+
+const ProductList = (props, products, deleteProduct) => {
+    return (   
+        <div>
+            
+            <ul>
+                {/* sebenernya kata products bisa diganti dengan props dan kata dibawah menjadi 
+                props.propduct.map */}
+                { props.products.map((product) => (
+                <li key={product.id}>{ product.title } - { product.price} 
+                <button className="button is-danger" onClick={() => {props.deleteProduct(product.id)} }>Delete</button> 
+                </li>
+                 ))}
+            </ul>
+        </div>
+    )
+}
+
+export default ProductList

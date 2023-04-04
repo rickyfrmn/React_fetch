@@ -1,0 +1,15 @@
+function getData(data) {
+    this.productID = data.product_id;
+    this.productData = data.product_data;
+    this.imageID = data.product_data.image_id;
+    this.text = data.product_data.text;
+    this.link = data.product_data.link;
+    this.imageUrl = data.product_data.image_url;
+}
+
+$.getJSON("json/products.json").done(function (data) {
+
+    var allProducts = data.map(function (item) {
+        return new getData(item);
+    });
+});
